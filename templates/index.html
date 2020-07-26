@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>TENSE ANALYZER</title>
+</head>
+
+<body>
+    <div id="container">
+        <div id="title">
+            <h1>TENSE ANALYZER</h1>
+        </div>
+        <div id="analyze">
+            <h2>英文を入力してEnterキーを押してください</h2>
+            <form id="form" action="/input" method="post" name="formStr">
+                <input id="textField" class="input" type="text" name="str" value="{{value_str}}">
+                <input class="submit" type="submit" name="" value="送信">
+            </form>
+        </div>
+
+        <div class="result">
+            <h2>結果</h2>
+            <!-- result配列の長さが0より大きい場合表示 -->
+            {% if result|length > 0 %}
+            <div class="result-content">
+		<form id="reset" action="/reset" method="post">
+                    <button name="reset_result">結果をリセットする</button>
+                </form>
+                <div class="items">
+                    <!-- resultの中身ををループで表示（ここではreverseで逆順にしています） -->
+                    {% for r in result%}
+
+                    <!-- r[0](文章)が存在するなら表示する -->
+                    {% if r %}
+
+                    <div class="item">
+                        <p class="value_str">{{ r }}</p>
+
+                        <!-- r[1](時制)が存在するなら表示する -->
+                        <!-- {% if r[1] %}
+                        <p class="tense">{{ r[1] }}</p>
+			{% endif %} -->
+                        <!--  -->
+                    </div>
+
+                    {% endif %}
+                    <!--  -->
+
+                    {% endfor %}
+                    <!--  -->
+                </div>
+            </div>
+            {% endif %}
+            <!--  -->
+        </div>
+    </div>
+</body>
+
+</html>
