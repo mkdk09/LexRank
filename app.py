@@ -60,13 +60,46 @@ def get_form():
         result.append(sentences[corpus.index(sentence.__str__())])
 
     # print(sentences)
+    docs1 = ""
+    for i in range(0, len(sentences)-1):
+        docs1 += sentences[i] + "。"
+    # print(docs1)
     # print(corpus)
     # print(summary)
-    print(result)
+    # print(result)
+    docs2 = ""
+    for r in result:
+        docs2 += r + "。"
+    # print(docs2)
+    # print(similarity_calculation(docs1, docs2)[0][1])
+    similarity = similarity_calculation(docs1, docs2)[0][1]
+    similarity = "類似度: " + str(similarity)
 
     # [変更] value_str -> result
     # index.html内にて{{ result }}で挿入できる
-    return render_template('index.html', result=result, wiki_title=wiki_title)
+    return render_template('index.html', result=result, wiki_title=wiki_title, similarity=similarity)
+
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from janome.tokenizer import Tokenizer
+def similarity_calculation(docs1, docs2):
+    docs = [docs1, docs2]
+    docs = np.array(docs)
+    vectorizer = TfidfVectorizer(analyzer=wakachi,binary=True,use_idf=False)
+    vecs = vectorizer.fit_transform(docs)
+    vecs = vecs.toarray()
+    return cosine_similarity(vecs)
+    
+#わかち書き関数
+def wakachi(text):
+    from janome.tokenizer import Tokenizer
+    t = Tokenizer()
+    tokens = t.tokenize(text)
+    docs=[]
+    for token in tokens:
+        docs.append(token.surface)
+    return docs
 
 import requests,bs4
 import wikipedia
