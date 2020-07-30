@@ -17,11 +17,19 @@ https://qiita.com/itkr/items/513318a9b5b92bd56185
 
 https://analysis-navi.com/?p=688
 
+テキストボックスの文字数表示
+
+https://uxmilk.jp/24331
+
+https://javascript.programmer-reference.com/js-setinterval/
+
+https://itsakura.com/js-textbox
+
 # TODO
 
 - [ ] 要約を2行から変更できるようにする
 - [ ] 文字数の変化を確認できるようにする
-- [ ] テキストボックスに文字を入力した(wikipediaボタンを押した)時に入力文の文字数が見えるようにする
+- [x] テキストボックスに文字を入力した(wikipediaボタンを押した)時に入力文の文字数が見えるようにする
 - [ ] 要約前の文章も表示するようにする
 - [ ] 文章保存機能(要約行数を変えて要約するため)
 - [ ] wikipediaのページのタイトル名,類似度のところで周りに空白を少し入れる
