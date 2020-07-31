@@ -18,8 +18,9 @@
         <div id="analyze">
             <h2>文章を入力してEnterキーを押してください</h2>
 	    <h3>{{wiki_title}}</h3>
-            <form id="form" action="/input" method="post" name="formStr">
+            <form id="form" action="/input" method="post" name="formStr" autocomplete="off">
                 <input id="textField" class="input" type="text" name="str" value="{{value_str}}">
+		<input type="number" class="number" value=3 name="sentences_count">
                 <input class="submit" type="submit" name="" value="送信">
             </form>
 	    <form id="wiki" action="/wiki" method="post">
