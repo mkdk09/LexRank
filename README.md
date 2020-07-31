@@ -25,10 +25,14 @@ https://javascript.programmer-reference.com/js-setinterval/
 
 https://itsakura.com/js-textbox
 
+要約行数変更
+
+https://web-designer.cman.jp/html_ref/abc_list/input_number/
+
 # TODO
 
-- [ ] 要約を2行から変更できるようにする
-- [ ] 文字数の変化を確認できるようにする
+- [x] 要約を2行から変更できるようにする
+- [x] 文字数の変化を確認できるようにする
 - [x] テキストボックスに文字を入力した(wikipediaボタンを押した)時に入力文の文字数が見えるようにする
 - [ ] 要約前の文章も表示するようにする
 - [ ] 文章保存機能(要約行数を変えて要約するため)
