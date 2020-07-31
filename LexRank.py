@@ -8,7 +8,7 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 
 class LexRank:
-    def tense_analyze(self, text):
+    def tense_analyze(self, text, sentences_count):
         # 1行1文となっているため、改行コードで分離
         # sentences = [t for t in text.split('\n')]
         sentences = [t for t in text.split('。')]
@@ -30,6 +30,6 @@ class LexRank:
         # LexRankで要約を2文抽出
         summarizer = LexRankSummarizer()
         summarizer.stop_words = [' ']  # スペースも1単語として認識されるため、ストップワードにすることで除外>する
-        summary = summarizer(document=parser.document, sentences_count=2)
+        summary = summarizer(document=parser.document, sentences_count=sentences_count)
 
         return sentences, corpus,  summary

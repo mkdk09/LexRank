@@ -31,20 +31,23 @@ def reset_result():
 def get_form():
     global value_str
     global wiki_title
-    
+    global sentences_count
+
     # フォームの値を受け取る
     try:
         value_str = request.form['str']  # name="str"のinputタグの値を取得
+        sentences_count = request.form['sentences_count']
     # ページ読み込み時
     except:
         value_str = ""
+        sentences_count = 3
 
     # tense_analyze関数の実行
     Analyzer = analyzer.Analyzer()
     value_str, tense = Analyzer.tense_analyze(value_str)
 
     LR = LexRank.LexRank()
-    sentences, corpus, summary = LR.tense_analyze(value_str)
+    sentences, corpus, summary = LR.tense_analyze(value_str, sentences_count)
 
     """
     # 結果をresultに追加
