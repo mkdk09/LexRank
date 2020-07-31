@@ -75,9 +75,11 @@ def get_form():
     similarity = similarity_calculation(docs1, docs2)[0][1]
     similarity = "類似度: " + str(similarity)
 
+    word_count = str(len(docs1)) + '→' + str(len(docs2))
+
     # [変更] value_str -> result
     # index.html内にて{{ result }}で挿入できる
-    return render_template('index.html', result=result, wiki_title=wiki_title, similarity=similarity)
+    return render_template('index.html', result=result, wiki_title=wiki_title, word_count=word_count, similarity=similarity)
 
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
