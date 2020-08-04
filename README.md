@@ -1,5 +1,10 @@
 # LexRank
 
+# DEMO
+![結果1](https://github.com/mkdk09/LexRank/blob/master/img/result1.png)
+
+![結果2](https://github.com/mkdk09/LexRank/blob/master/img/result2.png)
+
 # reference
 https://ohke.hateblo.jp/entry/2018/11/17/230000
 
