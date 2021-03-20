@@ -18,7 +18,7 @@ gensim==3.8.3
 idna==2.10
 itsdangerous==1.1.0
 Janome==0.3.10
-Jinja2==2.11.2
+Jinja2==2.11.3
 jmespath==0.10.0
 joblib @ file:///tmp/build/80754af9/joblib_1594236160679/work
 lxml==4.5.2
